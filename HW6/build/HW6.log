@@ -1,0 +1,505 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.22)  1 APR 2019 21:24
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**HW6.tex
+(./HW6.tex
+LaTeX2e <2018-04-01> patch level 5
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/koma-scri
+pt/scrartcl.cls
+Document Class: scrartcl 2018/03/30 v3.25 KOMA-Script document class (article)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/koma-scri
+pt/scrkbase.sty
+Package: scrkbase 2018/03/30 v3.25 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/koma-scri
+pt/scrbase.sty
+Package: scrbase 2018/03/30 v3.25 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/graphics/
+keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/koma-scri
+pt/scrlfile.sty
+Package: scrlfile 2018/03/30 v3.25 KOMA-Script package (loading files)
+)))
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/koma-scri
+pt/tocbasic.sty
+Package: tocbasic 2018/03/30 v3.25 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip41
+\scr@dte@tocline@numbox=\box26
+)
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 134.
+Package scrartcl Info: You've used standard option `11pt'.
+(scrartcl)             This is correct!
+(scrartcl)             Internally I'm using `fontsize=11pt'.
+(scrartcl)             If you'd like to set the option with \KOMAoptions,
+(scrartcl)             you'd have to use `fontsize=11pt' there
+(scrartcl)             instead of `11pt', too.
+Class scrartcl Info: File `scrsize11pt.clo' used to setup font sizes on input l
+ine 2114.
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/koma-scri
+pt/scrsize11pt.clo
+File: scrsize11pt.clo 2018/03/30 v3.25 KOMA-Script font size class option (11pt
+)
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/koma-scri
+pt/typearea.sty
+Package: typearea 2018/03/30 v3.25 KOMA-Script package (type area)
+\ta@bcor=\skip42
+\ta@div=\count80
+Package typearea Info: You've used standard option `a4paper'.
+(typearea)             This is correct!
+(typearea)             Internally I'm using `paper=a4'.
+(typearea)             If you'd like to set the option with \KOMAoptions,
+(typearea)             you'd have to use `paper=a4' there
+(typearea)             instead of `a4paper', too.
+\ta@hblk=\skip43
+\ta@vblk=\skip44
+\ta@temp=\skip45
+\footheight=\skip46
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 418.25555pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 17.3562pt
+(typearea)              \oddsidemargin  = 17.3562pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 595.80026pt
+(typearea)              \topmargin      = -25.16531pt
+(typearea)              \headheight     = 17.0pt
+(typearea)              \headsep        = 20.40001pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 47.6pt
+(typearea)              \baselineskip   = 13.6pt
+(typearea)              on input line 1706.
+)
+\c@part=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\scr@dte@part@maxnumwidth=\skip47
+\scr@dte@section@maxnumwidth=\skip48
+\scr@dte@subsection@maxnumwidth=\skip49
+\scr@dte@subsubsection@maxnumwidth=\skip50
+\scr@dte@paragraph@maxnumwidth=\skip51
+\scr@dte@subparagraph@maxnumwidth=\skip52
+\abovecaptionskip=\skip53
+\belowcaptionskip=\skip54
+\c@pti@nb@sid@b@x=\box27
+\scr@dte@figure@maxnumwidth=\skip55
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 5439.
+\c@figure=\count87
+\scr@dte@table@maxnumwidth=\skip56
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 5451.
+\c@table=\count88
+Class scrartcl Info: Redefining `\numberline' on input line 5615.
+\bibindent=\dimen102
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/babel/b
+abel.sty
+Package: babel 2018/11/13 3.27 The Babel package
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/babel/s
+witch.def
+File: switch.def 2018/11/13 3.27 Babel switching mechanism
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/babel-g
+erman/german.ldf
+Language: german 2018/03/29 v2.10 German support for babel (pre-1996 orthograph
+y)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/babel-g
+erman/germanb.ldf
+Language: germanb 2018/03/29 v2.10 German support for babel (pre-1996 orthograp
+hy)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/babel/b
+abel.def
+File: babel.def 2018/11/13 3.27 Babel common definitions
+\babel@savecnt=\count89
+\U@D=\dimen103
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/babel/t
+xtbabel.def)
+\bbl@dirlevel=\count90
+)
+Package babel Info: Making " an active character on input line 135.
+)))
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/tools/the
+orem.sty
+Package: theorem 2014/10/28 v2.2c Theorem extension package (FMi)
+\theorem@style=\toks15
+\theorem@bodyfont=\toks16
+\theorempreskipamount=\skip57
+\theorempostskipamount=\skip58
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/tools/thp
+.sty
+File: thp.sty 2014/10/28 v2.2c Theorem extension package (FMi)
+))
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/base/exsc
+ale.sty
+Package: exscale 2014/09/29 v2.1h Standard LaTeX package exscale
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 57.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.
+\big@size=\dimen104
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/amsmath/a
+msmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip59
+
+For additional information on amsmath, use the `?' option.
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/amsmath/a
+mstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/amsmath/a
+msgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen105
+))
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/amsmath/a
+msbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen106
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/amsmath/a
+msopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count91
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count92
+\leftroot@=\count93
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count94
+\DOTSCASE@=\count95
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen107
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
+\dotsspace@=\muskip10
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
+\tag@help=\toks18
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
+\andhelp@=\toks19
+\eqnshift@=\dimen108
+\alignsep@=\dimen109
+\tagshift@=\dimen110
+\tagwidth@=\dimen111
+\totwidth@=\dimen112
+\lineht@=\dimen113
+\@envbody=\toks20
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/amsfonts/
+amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/amsfonts/
+amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/doublestr
+oke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/a4wide/a4
+wide.sty
+Package: a4wide 1994/08/30
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/ntgclass/
+a4.sty
+Package: a4 2004/04/15 v1.2g A4 based page layout
+))
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/eepic/epi
+c.sty
+Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
+\@@multicnt=\count103
+\d@lta=\count104
+\@delta=\dimen114
+\@@delta=\dimen115
+\@gridcnt=\count105
+\@joinkind=\count106
+\@dotgap=\dimen116
+\@ddotgap=\dimen117
+\@x@diff=\count107
+\@y@diff=\count108
+\x@diff=\dimen118
+\y@diff=\dimen119
+\@dotbox=\box30
+\num@segments=\count109
+\num@segmentsi=\count110
+\@datafile=\read1
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/eepic/eep
+ic.sty
+Extension to Epic and LaTeX. Version 1.1e - Released Dec 21, 1999
+\@gphlinewidth=\count111
+\@eepictcnt=\count112
+\@tempdimc=\dimen120
+\maxovaldiam=\dimen121
+\@filltype=\box31
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/graphics/
+graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/graphics/
+graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/graphics/
+trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/graphics-
+cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/graphics-
+def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen122
+\Gin@req@width=\dimen123
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/url/url.s
+ty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@aufgnr=\count113
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/tools/thb
+.sty
+File: thb.sty 2014/10/28 v2.2c Theorem extension package (FMi)
+)
+\c@Satz=\count114
+\c@Lem=\count115
+\c@Def=\count116
+\c@Bsp=\count117
+ (build/HW6.aux)
+\openout1 = `HW6.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/context/base/mk
+ii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count118
+\scratchdimen=\dimen124
+\scratchbox=\box32
+\nofMPsegments=\count119
+\nofMParguments=\count120
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count121
+\MPscratchDim=\dimen125
+\MPnumerator=\count122
+\makeMPintoPDFobject=\count123
+\everyMPtoPDFconversion=\toks23
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/oberdiek/
+epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/oberdie
+k/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/oberdiek/
+grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/oberdie
+k/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/oberdie
+k/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/oberdiek/
+kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/oberdie
+k/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/oberdie
+k/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/oberdie
+k/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/oberdie
+k/pdftexcmds.sty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/generic/oberdie
+k/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/latexconf
+ig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package epstopdf Info: Source file: <cm-logo2.eps>
+(epstopdf)                    date: 2008-02-19 14:30:43
+(epstopdf)                    size: 7592 bytes
+(epstopdf)             Output file: <cm-logo2-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-16 13:49:42
+(epstopdf)                    size: 4498 bytes
+(epstopdf)             Command: <repstopdf --outfile=cm-logo2-eps-converted-to.
+pdf cm-logo2.eps>
+(epstopdf)             \includegraphics on input line 96.
+Package epstopdf Info: Output file is already uptodate.
+<cm-logo2-eps-converted-to.pdf, id=1, 405.515pt x 618.31pt>
+File: cm-logo2-eps-converted-to.pdf Graphic file (type pdf)
+<use cm-logo2-eps-converted-to.pdf>
+Package pdftex.def Info: cm-logo2-eps-converted-to.pdf  used on input line 96.
+(pdftex.def)             Requested size: 221.32687pt x 337.47702pt.
+
+Overfull \hbox (93.09126pt too wide) in paragraph at lines 96--96
+[][] 
+ []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 96.
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/amsfonts/
+umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 96.
+
+(/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/tex/latex/amsfonts/
+umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+
+Overfull \hbox (0.24622pt too wide) in paragraph at lines 136--138
+\OT1/cmr/m/n/10.95 using a com-po-sed qua-dra-ture ru-le $\OML/cmm/m/it/10.95 Q
+[]$\OT1/cmr/m/n/10.95 , ba-sed on the 3-point in-ter-po-la-ti-on on $[]$,
+ []
+
+[1
+
+{/usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-var/fonts/map/pdftex/upd
+map/pdftex.map} <./cm-logo2-eps-converted-to.pdf>] [2] (build/HW6.aux) ) 
+Here is how much of TeX's memory you used:
+ 5360 strings out of 492639
+ 89506 string characters out of 6117862
+ 260782 words of memory out of 5000000
+ 9146 multiletter control sequences out of 15000+600000
+ 10616 words of font info for 40 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 51i,16n,51p,9121b,267s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/s
+epp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx10.pfb></usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmex10.pfb></usr/sepp1.5.1/drwho/pack-a/texlive-201
+81114-cr/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sepp1.5.1/d
+rwho/pack-a/texlive-20181114-cr/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6
+.pfb></usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi8.pfb></usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sepp1.5.1/drwho/pack-a/t
+exlive-20181114-cr/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sep
+p1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr8.pfb></usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmssbx10.pfb></usr/sepp1.5.1/drwho/pack-a/texlive-20181
+114-cr/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sepp1.5.1/drw
+ho/pack-a/texlive-20181114-cr/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.p
+fb></usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy8.pfb></usr/sepp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sepp1.5.1/drwho/pack-a/te
+xlive-20181114-cr/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/se
+pp1.5.1/drwho/pack-a/texlive-20181114-cr/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msbm10.pfb>
+Output written on build/HW6.pdf (2 pages, 147480 bytes).
+PDF statistics:
+ 74 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

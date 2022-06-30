@@ -1,0 +1,167 @@
+\documentclass[11pt,a4paper,german]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Anpassungen f"ur das jeweilige "Ubungsblatt
+\def\blnr{6}              % Blattnummer
+\def\sdate{5.4.2019}    % Abgabedatum
+\def\exnr{1}              % Nummer der ersten Aufgabe des aktuellen Blattes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{babel,theorem}
+\usepackage{exscale}
+\usepackage{amsmath,amsfonts,amssymb,dsfont}
+\usepackage{a4wide}
+\usepackage{epic,eepic}
+\usepackage{graphicx} % einbinden von Grafiken mit \includegraphics
+\usepackage{url}
+
+\pagestyle{empty}
+\parindent0em
+\parskip1ex
+\addtolength{\topmargin}{0cm}
+\addtolength{\oddsidemargin}{0cm}
+\addtolength{\textheight}{2cm}
+\addtolength{\textwidth}{0cm}
+
+% neuer Z"ahler f"ur die Aufgaben
+\newcounter{aufgnr}
+\setcounter{aufgnr}{\exnr}
+\addtocounter{aufgnr}{-1}
+
+% in enumerate-Umgebungen erst Kleinbuchstaben, dann kleine r"omische Zahlen
+\renewcommand{\labelenumi}{(\alph{enumi})\,}
+\renewcommand{\labelenumii}{(\roman{enumii})\,}
+
+% Stil f"ur Definitionen, S"atze usw.
+\theoremstyle{break}   % Titelzeile abgesetzt
+\newtheorem{Satz}{Satz}
+\newtheorem{Lem}{Lemma}
+\newtheorem{Def}{Definition}
+\theorembodyfont{\upshape}  % normaler Font f"ur Beispiel, Aufgabe
+\newtheorem{Bsp}{Beispiel}
+\newtheorem{aufg}[aufgnr]{Aufgabe}
+\newenvironment{Aufgabe}[1][z*+]%
+{\begin{aufg}}
+  {\end{aufg}\vspace{1.5ex}}
+\newtheorem{praktaufg}[aufgnr]{Aufgabe^*}
+\newenvironment{PraktAufgabe}[1][]%  der optionale Param. muss in [[ .. ]]
+{\begin{praktaufg}#1}
+  {\end{praktaufg}\vspace{1.5ex}}
+
+\newcommand{\zweifaelles}[3]{ \left\{ \begin{array}{ccc} #1 & \hspace{.8cm}  \mbox{ falls } #2 \, , &     \\[1ex]
+                               #3 & \mbox{ sonst } &     \end{array} \right.     }
+% Mathematische K"urzel
+\def\R{\mathbb{R}}
+\def\S{\mathbb{S}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\P{\mathbb{P}}
+\def\K{\mathbb{K}}
+\def\O{{\mathcal O} }
+\def\G{{\mathcal G} }
+\def\T{{\mathcal T} }
+\def\U{{\mathcal U} }
+
+\newcommand{\arrl}{\begin{array}{l}}
+\newcommand{\are}{\end{array}}
+\newcommand{\arrc}{\begin{array}{c}}
+\newcommand{\mza}{\begin{eqnarray}}
+\newcommand{\mze}{\end{eqnarray}}
+\newcommand{\dn}{\frac{\partial}{\partial n}}
+\newcommand{\dny}{\frac{\partial}{\partial n(y)}}
+\newcommand{\dd}[2]{\ensuremath{\frac{\partial^{#1}}{\partial #2}}}
+\newcommand{\ov}{\overline}
+\newcommand{\ma}{\mid\!}
+\newcommand{\me}{\!\mid}
+\newcommand{\impl}{\Rightarrow}
+\newcommand{\sca}[3]{\ensuremath{(#1,#2)_{#3}}}
+\newcommand{\nor}[2]{\ensuremath{\parallel\! #1 \!\parallel_{#2}}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\phin}{\varphi}
+\newcommand{\diver}{\mbox{div}}
+
+\def\eps{{\varepsilon}}
+\def\i{{\sl i\;}}
+\def\e{{\rm e}}
+\def\D{{\rm D\;}}
+\def\norm{|\!|\!|}
+
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\cond}{cond}
+\DeclareMathOperator{\round}{round}
+\DeclareMathOperator{\supp}{supp}
+
+\begin{document}
+
+\parbox{0ex}{ \scalebox{.27}{  \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }   }   \\
+
+\parbox{25ex}{
+  Prof.~Dr.~S.~Sauter\\
+  Institut f"ur Mathematik\\
+  Universit"at Z"urich
+  }
+%
+\rule[0cm]{0.cm}{.01cm}
+\hfill  \parbox{0.6\textwidth}{
+  {\sffamily\LARGE\bfseries Numerik I}
+  {\sffamily\Large\bfseries \;\;--\;\; Homework \blnr }\\[1.5ex]
+  Deadline: \sdate\ 12:00
+  }
+  
+  
+\vspace{10ex}
+\textbf{Exercice 1} (7 P.)(Theoretical task)\\
+Let \(I=[a,b]\). We want to approximate 
+\begin{align*}
+\mathcal{I}(f) = \int_a^b f(x) dx
+\end{align*}
+for a function \(f\in C^0(I)\).
+\begin{enumerate}
+\item Derive a quadrature formula \(Q_M(f)\) based on the constant interpolation in the midpoint \(x_M= \frac{a+b}{2}.\)
+\item Derive a quadrature formula \(Q_H(f)\) based on the linear Hermite Interpolation in the midpoint \(x_M= \frac{a+b}{2}\), i.e. a linear interpolation \(p(f)\) of \(f\) that satisfies \[p(f)(x_M) = f(x_M), \qquad p(f)^\prime(x_M) = f^\prime (x_M).\]
+\item Derive for the quadrature formula in (a) an estimate of the error 
+\begin{align*}
+|\mathcal{I}(f) - Q_M(f)|.
+\end{align*}
+\textit{Hint:} Use (b) and proceed as in the error estimate of the Simpson's rule in the script.
+\item Let \(a=x_0<x_1<\ldots<x_n = b\) be an equidistant partition of the interval \(I\). Define by \(Q_M^n\) the composed quadrature formula of \(Q_M\): in each subinterval \([x_{i-1},x_{i}]\), \(i = 1, \ldots, n\) apply the quadrature \(Q_M\). Derive an estimate of the error 
+\begin{align*}
+|\mathcal{I}(f) - Q_M^n(f)|.
+\end{align*}
+\end{enumerate}
+
+\textbf{Exercise 2} (9 P.) (Computational task) \\
+Let $I:=[0,1]$ and divide $I$ into $n$ subintervals \(\cup_{i=1}^n \left[ x_{2i-2}, x_{2i} \right]\) (not necessarily equidistant). We want to approximate the integral of a given function $f:I\to \mathbb{R}$ 
+$$\mathcal{I}(f):=\int_0 ^ 1 f(x)dx
+$$
+using a composed quadrature rule \(Q_{\tilde{S}}^n\), based on the 3-point interpolation on \(\left\{ x_{2i-2},x_{2i-1}, x_{2i} \right\}\), \(1\leq i \leq n\).
+\begin{enumerate}
+\item Code the composed quadrature rule described above. \\
+Input: vector of nodes \((x_i)_{i=0}^{2n}\), vector \((f_i)_{i=0}^{2n}\) where \(f_i = f(x_i)\).\\ Output: $Q_{\tilde{S}}^n(f)$.\\
+Note that $n$ subintervals correspond to $2n+1$ points.\\
+\textit{Remark: } If \(x_{2i-1}= \frac{x_{2i-2}+ x_{2i}}{2}\), this is the composed Simpson's rule.
+\item Test the program with the function $f(x):=\pi x\sin(\pi x^2)$ for \(n\) equidistant subintervals and \(x_{2i-1}= \frac{x_{2i-2}+ x_{2i}}{2}\) (i.e. composed Simpson's rule). Compute analytically $\mathcal{I}(f)$. Store in a table the values $e_n(f):=|Q_{\tilde{S}}^n(f)-\mathcal{I}(f)|$ for $n=2^i$, $1\leq i \leq 10$. Plot the logarithm of the error with respect to $\log(n)$. What can you say about the convergence rate?
+\item From the lecture we know that the error of the composed Simpson's quadrature for $f\in \mathcal{C}^\infty(I)$ can be estimated by:
+$$e_n(f)= |\mathcal{I}(f) - Q_S^n(f)| \leq Ch^4,$$
+where $h=\dfrac{1}{n}$ is the length of each subinterval.
+Using the plot/data produced in (b), estimate the constant $C$.
+\item Code the composed trapezoidal rule \(Q_T^m\), which for each subinterval $[x_{j-1},x_j]$ for $j=1,\dots, m$ is defined by
+$$
+\int_{x_{j-1}}^{x_{j}} f(x) dx \approx  \frac{x_{j}-x_{j-1}}{2} \left( f(x_{j-1}) + f(x_{j}) \right), 
+$$
+Input: \((x_i)_{i=0}^m\) and \((f_i)_{i=0}^m\), where \(f_i= f(x_i)\).\\
+Output: $Q_T^m(f)$.
+\item Compare the error and the order of convergence produced by the two methods of (b) and (c) with respect to same number of function evaluations (i.e. same number of nodes).
+\item Test your program for the same function $f(x):=\pi x\sin(\pi x^2)$ with nodes
+\begin{align*}
+x_i = 
+\begin{cases}
+\frac{i}{2n} & \text{for } i \text{ even,}\\
+\frac{i+\delta_i}{2n} & \text{for } i \text{ odd}.
+\end{cases}
+\end{align*}
+for \(|\delta_i| < \frac{1}{2}\delta\), \(\delta=1\) and different values of \(n\). Plot the logarithm of the error with respect to \(\log(n)\). For \(\delta_i\) use a random number (e.g. with \texttt{rand} in Matlab). What is the convergence rate of the method?\\
+Repeat the test for smaller values of \(\delta \rightarrow 0\) and comment on your observations.
+\end{enumerate}
+
+\end{document}

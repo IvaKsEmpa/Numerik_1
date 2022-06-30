@@ -1,0 +1,162 @@
+\documentclass[11pt,a4paper,DIV9,german]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Anpassungen f"ur das jeweilige "Ubungsblatt
+\def\blnr{2}              % Blattnummer
+\def\sdate{10.3.2017,}     % Abgabedatum
+\def\exnr{1}              % Nummer der ersten Aufgabe des aktuellen Blattes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{babel,theorem}
+\usepackage{exscale}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{a4wide}
+\usepackage{epic,eepic}
+\usepackage{graphicx} % einbinden von Grafiken mit \includegraphics
+\usepackage{url}
+
+\pagestyle{empty}
+\parindent0em
+\parskip1ex
+\addtolength{\topmargin}{0cm}
+\addtolength{\oddsidemargin}{0cm}
+\addtolength{\textheight}{2cm}
+\addtolength{\textwidth}{0cm}
+
+% neuer Z"ahler f"ur die Aufgaben
+\newcounter{aufgnr}
+\setcounter{aufgnr}{\exnr}
+\addtocounter{aufgnr}{-1}
+
+% in enumerate-Umgebungen erst Kleinbuchstaben, dann kleine r"omische Zahlen
+\renewcommand{\labelenumi}{(\alph{enumi})\,}
+\renewcommand{\labelenumii}{(\roman{enumii})\,}
+
+% Stil f"ur Definitionen, S"atze usw.
+\theoremstyle{break}   % Titelzeile abgesetzt
+\newtheorem{Satz}{Satz}
+\newtheorem{Lem}{Lemma}
+\newtheorem{Def}{Definition}
+\theorembodyfont{\upshape}  % normaler Font f"ur Beispiel, Aufgabe
+\newtheorem{Bsp}{Beispiel}
+\newtheorem{aufg}[aufgnr]{Aufgabe}
+\newenvironment{Aufgabe}[1][z*+]%
+{\begin{aufg}}
+  {\end{aufg}\vspace{1.5ex}}
+\newtheorem{praktaufg}[aufgnr]{Aufgabe^*}
+\newenvironment{PraktAufgabe}[1][]%  der optionale Param. muss in [[ .. ]]
+{\begin{praktaufg}#1}
+  {\end{praktaufg}\vspace{1.5ex}}
+
+\newcommand{\zweifaelles}[3]{ \left\{ \begin{array}{ccc} #1 & \hspace{.8cm}  \mbox{ falls } #2 \, , &     \\[1ex] 
+                               #3 & \mbox{ sonst } &     \end{array} \right.     }
+% Mathematische K"urzel
+\def\R{\mathbb{R}}
+\def\S{\mathbb{S}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\P{\mathbb{P}}
+\def\K{\mathbb{K}}
+\def\O{{\mathcal O} }
+\def\G{{\mathcal G} }
+\def\T{{\mathcal T} }
+\def\U{{\mathcal U} }
+
+\newcommand{\arrl}{\begin{array}{l}}
+\newcommand{\are}{\end{array}}
+\newcommand{\arrc}{\begin{array}{c}}
+\newcommand{\mza}{\begin{eqnarray}}
+\newcommand{\mze}{\end{eqnarray}}
+\newcommand{\dn}{\frac{\partial}{\partial n}}
+\newcommand{\dny}{\frac{\partial}{\partial n(y)}}
+\newcommand{\dd}[2]{\ensuremath{\frac{\partial^{#1}}{\partial #2}}} 
+\newcommand{\ov}{\overline}
+\newcommand{\ma}{\mid\!}
+\newcommand{\me}{\!\mid}
+\newcommand{\impl}{\Rightarrow}
+\newcommand{\sca}[3]{\ensuremath{(#1,#2)_{#3}}}
+\newcommand{\nor}[2]{\ensuremath{\parallel\! #1 \!\parallel_{#2}}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\phin}{\varphi}
+\newcommand{\diver}{\mbox{div}}
+
+\def\eps{{\varepsilon}}
+\def\i{{\sl i\;}}
+\def\e{{\rm e}}
+\def\D{{\rm D\;}}
+\def\norm{|\!|\!|}
+
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\cond}{cond}
+\DeclareMathOperator{\round}{round}
+\DeclareMathOperator{\supp}{supp}
+
+\begin{document}
+
+\parbox{0ex}{ \scalebox{.27}{  \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }   }   \\
+
+\parbox{25ex}{
+  Prof.~Dr.~S.~Sauter\\
+  Institut f"ur Mathematik\\
+  Universit"at Z"urich
+  }
+%
+\rule[0cm]{0.cm}{.01cm}                  
+\hfill  \parbox{0.6\textwidth}{
+  {\sf\LARGE\bfseries Numerik I}
+  {\sf\Large\bfseries \;\;--\;\; Homework \blnr }\\[1.5ex]
+  Deadline: \sdate\ 12:00
+  }
+
+
+
+\vspace{10ex}
+
+
+% \scalebox{.27}{ \put(1250,0){ \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Aufgaben 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Note: Do not use implemented Matlab functions (e.g. \texttt{polyfit}, \texttt{polyval}) to solve the exercises. 
+
+\vspace{0.5cm}
+\textbf{Exercise 1} (10 P.)
+%
+\begin{itemize}
+\item[(a)] Write a Matlab function that takes nodes \((x_i)_{i=0}^n\) and values \((f_i)_{i=0}^n\) and computes the Newton differences \((b_i)_{i=0}^n\) from formula (2.7) of the lecture notes. Write another Matlab function that computes the value of \(x\) of a polynomial given by the nodes \((x_i)_{i=0}^n\) and the Newton differences \((b_i)_{i=0}^n\) (Satz 2.5).
+\item [(b)] Let \(d>0\) and \(f:[-d,d]\to\R\), \(f(x):= e^{-x^2}\). Denote by \(p_{d,n}\in \P_n\) the polynomial of degree \(n\) satisfying
+\[p_{d,n}(x_i)=f(x_i) \quad \text{for all nodes} \quad x_i=-d+\frac{2d}{n}i\quad 0\leq i\leq n. \]
+Use your codes from (a) to compute the interpolation polynomial of \(f\) for \(d=5\) and \(n= 2,4,6,8,10\). Evaluate the polynomials \(p_{d,n}\) and \(f\) in $\tilde{x}_j=-d+\frac{2d}{1000}j$, $0\leq j\leq 1000$ and show all graphs in one plot. 
+Enter the error
+\begin{equation}\label{error}
+E_{d,n}:=\max\limits_{0\leq j\leq1000} \left| (f-p_{d,n})(\tilde{x}_j) \right|
+\end{equation}
+with respect to \(n\) into a table. What do you observe?
+\item[(c)] Repeat (b) with \(d=1\). Use your table to derive (approximately) the rate of convergence with respect to the number of nodes \(n\).
+\item[(d)] Find an approximate value of \(d_{\max}\), such that the error \(E_{d,n}\) decreases for increasing \(n\).
+Plot the logarithm of the the error, \(\log(E_{d,n})\), for \(d=d_{max}/2\) with respect to \(n\) and determine the constants \(C_1, \beta\) in the estimate
+\begin{equation*}
+E_{d,n}\leq C_1e^{-\beta n}.
+\end{equation*}
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{Exercise 2} (5 P.) 
+\begin{itemize}
+\item[(a)] Let $x_0=t$ and $x_1=1-t$. Find $t\in [0,1]$ such that $\max\limits_{x\in [0,1]} |\omega_1(x)|$ is minimal.
+\item[(b)] Show in one plot the graph of \(\omega_{10}(x)\) for equidistant nodes on the interval [-5,5] and for the nodes
+\begin{equation}\label{cheb}
+x_i = 5\cos\left(\frac{2i+1}{2(n+1)}\pi\right), \quad 0\leq i \leq n, \text{ for }  n = 10.
+\end{equation} 
+What do you conclude?
+\item[(c)] Let \(f\) be as in exercise 1 (b), \(d=5\). Compute the error (see \eqref{error}), where \(p_{d,n}\) is the interpolation polynomial of degree 10 with the nodes defined in \eqref{cheb}. What can you say about the error compared to your results of exercise 1 (b)?
+\end{itemize}
+
+
+
+\end{document}

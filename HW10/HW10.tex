@@ -1,0 +1,163 @@
+\documentclass[11pt,a4paper,english,hyperref]{article}
+\usepackage[utf8]{inputenc}
+
+\newcommand\blattNummer{10}
+\newcommand\abgabeDatum{10.5.2019}
+\newcommand\ersteAufgabeNummer{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{babel}
+\usepackage{exscale}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[thref, amsmath, amsthm, thmmarks]{ntheorem}
+\usepackage{a4wide}
+\usepackage{epic,eepic}
+\usepackage{graphicx} % einbinden von Grafiken mit \includegraphics
+\usepackage{url}
+\usepackage{mathtools}
+\usepackage{etoolbox}
+\usepackage[colorlinks]{hyperref}
+\usepackage{enumitem}
+\usepackage[capitalize]{cleveref}
+\usepackage{enumitem}
+
+\pagestyle{empty}
+\parindent0em
+\parskip1ex
+\addtolength{\topmargin}{0cm}
+\addtolength{\oddsidemargin}{0cm}
+\addtolength{\textheight}{2cm}
+\addtolength{\textwidth}{0cm}
+
+% neuer Zähler für die Aufgaben
+\newcounter{aufgabeNummer}
+\setcounter{aufgabeNummer}{\ersteAufgabeNummer}
+\addtocounter{aufgabeNummer}{-1}
+
+% in enumerate-Umgebungen erst Kleinbuchstaben, dann kleine römische Zahlen
+\renewcommand{\labelenumi}{(\alph{enumi})\,}
+\renewcommand{\labelenumii}{(\roman{enumii})\,}
+\setenumerate[0]{label=(\alph*)}
+\crefname{enumerate}{}{}
+
+% Stil für Definitionen, Sätze usw.
+\theoremstyle{break}   % Titelzeile abgesetzt
+\newtheorem{Satz}{Proposition}
+\newtheorem{Lemma}{Lemma}
+\newtheorem{Definition}{Definition}
+\theorembodyfont{\upshape}  % normaler Font f"ur Beispiel, Aufgabe
+\newtheorem{Beisiep}{Example}
+\newtheorem{Aufgabe}[aufgabeNummer]{Exercise}
+
+% Mathematische Kürzel
+\newcommand\R{\mathbb{R}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\N{\mathbb{N}}
+\newcommand\Z{\mathbb{Z}}
+\renewcommand\P{\mathbb{P}}
+\newcommand\T{{\mathcal T} }
+
+\newcommand\eps{{\varepsilon}}                                  % machine precision?
+\newcommand\im{{\sl i\;}}                                        % imaginary unit?
+\newcommand\e{{\rm e}}                                          % Euler number
+\newcommand\D{{\rm D\;}}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\dotProductD{\langle}{\rangle}           % Delimiters for dot product
+
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\cond}{cond}
+\DeclareMathOperator{\round}{round}
+\DeclareMathOperator{\supp}{supp}
+
+\begin{document}
+\parbox{0ex}{ \scalebox{.27}{  \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }   }   \\
+\parbox{25ex}{
+  Prof.~Dr.~S.~Sauter\\
+  Institut für Mathematik\\
+  Universität Zürich
+  }
+%
+\rule[0cm]{0.cm}{.01cm}                  
+\hfill  \parbox{0.6\textwidth}{
+  {\sf\LARGE\bfseries Numerik I}
+  {\sf\Large\bfseries \;\;--\;\; Homework \blattNummer }\\[1.5ex]
+  Deadline: \abgabeDatum,\ 13:00
+}
+\vspace{5ex}
+  
+%\textbf{Aufgabe 1} (4 Pkt.)\\
+%Die Funktion $f(x)=\sin(x)$ ist nur verrauscht verf\"ugbar: 
+%$$
+%\tilde f(x) = f(x)+\delta\frac{\sin \frac{1}{x}}{x^2+0.1}
+%$$
+%
+%\begin{enumerate}
+%\item Approximieren Sie $f'(0)$ mittels symmetrischer Differenz (d.h.\
+%$ f'(x) \approx \frac{\tilde f(x+h)-\tilde f(x-h)}{2h}$).
+%\item Wie muss $h$ bez\"uglich $\delta$ optimalerweise gew\"ahlt werden?
+%\item Plotten Sie den Fehler der Approximation $e_\delta(h)$ f\"ur $h=10^0,10^{-0.5},\ldots , 10^{-3}$ und f\"ur $\delta=10^{-12},10^{-10},10^{-8},10^{-6}$. \"Uberprufen Sie ob $h=h_{opt}$ aus dem Skript eine gute Wahl ist.
+%\end{enumerate}
+%\vspace{4ex}
+%
+%\textbf{Aufgabe 2} (4 Pkt.)\\
+%Sei f"ur $m\in \mathbb N$
+%$$I_m:=\int_0^1 x^m\ e^x dx.$$
+%\begin{itemize}
+% \item [(a)] Leiten Sie eine Rekursionsformel zur exakten Berechnung von $I_m$ her und programmieren Sie sie. Testen Sie ihr Programm f"ur $m=20,40,60,80,100$.
+%
+%\item [(b)] Programmieren Sie die Simpson-Regel und vergleichen Sie die Ergebnisse mit (a). Benutzen Sie dabei 400 Teilintervalle.
+%Welche Unterschiede stellen Sie fest und warum? Welches Ergebnis ist f"ur $m=100$ genauer?
+%\end{itemize} 
+%
+%\vspace{4ex}
+
+\begin{Aufgabe}[3 Points, Computational task]
+  Given a function $f$, we want to approximate its zeros by a combined bisection and Newton's method. Write a function that takes as input a starting interval and:
+  \begin{itemize}
+    \item iterates with the bisection method to determine an interval  $I_\delta(a):=[a-\delta, a+\delta]$, where the Newton's method converges to the zero of $f$ for all start values in this interval;
+    \item uses Newton's method on $f(x)$ using the starting value $a$ found before.
+  \end{enumerate}
+
+  Test your code with the function
+  $$f(x)=x-\cos(x)+\sin(x).$$
+
+  \textit{Hint:} For the bisection method, find $\delta$ using Corollary 7.11 from the script. Plot the given function to guess the starting interval to use as the input of your code.
+\end{Aufgabe}
+
+\begin{Aufgabe}[8 Points]
+  Let $x_*$ be a zero of $f$, i.e. $f(x_*)=0$. We assume:  $f'(x_*)> 0$, $f''(x_*)\neq 0$.
+  \begin{enumerate}
+    \item (Theoretical task) Find a function $\varphi$ such that $x_*$ is a solution of the fixed-point equation $x=\varphi(x)$, and the iteration formula based on $\varphi$ satisfies
+    \begin{equation*}
+      x^{(i+1)}=\varphi(x^{(i)}), \quad x^{(i)} \xrightarrow[i\to \infty]{} x_*, 
+    \end{equation*}
+    with the order of convergence 3. To do this, replace the function $f$ by its Taylor series expansion of order 2 around $x^{(i)}$ and determine $x^{(i+1)}$ as the zero of this parabola. Think about which zero point should be chosen as $x^{(i + 1)}$ if the parabola has two zeros. 
+    % Uberlegen Sie sich, welche Nullstelle als $x^{(i+1)}$ gew\"ahlt werden sollte, falls die Parabel zwei Nullstellen hat.
+    \item (Computational task) Implement this formula and also the Newton's method to determine $2^{1/3}$. Use the starting value $x_0 = 2$. Compare their convergence rate along with the bisection method using starting interval $[1, 2]$. In all the three methods, approximate up to an accuracy of $10^{-8}$ or maximum of 30 iterations.\\ What are the disadvantages of the method of order 3?
+  \end{enumerate}
+\end{Aufgabe}
+
+\begin{Aufgabe}[5 Points]
+  The function $f(x)=\sin(x)$ is only available in a perturbed (or noisy) form:  
+  \begin{equation*}
+    \tilde f(x) = f(x)+\delta ~ \dfrac{\sin \frac{1}{x}}{x+1}
+  \end{equation*}
+  \begin{enumerate}
+    \item (Computational task) Approximate $f'(0)$ using symmetric differences (i.e. $ f'(x) \approx \frac{\tilde f(x+h)-\tilde f(x-h)}{2h}$).
+    \item (Theoretical task) How should $h$ be choosen optimally in terms of $\delta$?
+    \item (Computational task) Plot the error of the approximation $e_\delta(h)$ for $h=10^0,10^{-0.5},\ldots , 10^{-3}$ and for $\delta=10^{-12},10^{-10},10^{-8},10^{-6}$. Check if $h=h_{opt}$ from the script is a good choice.
+  \end{enumerate}
+
+\end{Aufgabe}
+
+
+
+
+%\textit{Hinweis:} Benutzen Sie die Taylor-Entwicklung der zweiten Ordnung:
+%$$
+%f(x)\approx f(x^{(i)})+f'(x^{(i)})(x-x^{(i)})+\frac{1}{2}f''(x^{(i)})(x-x^{(i)})^2.
+%$$
+%W\"ahlen Sie in jedem Iterationsschritt den Punkt $x^{(i+1)}$, so dass der am n\"achsten zu $x^{(i)}$ steht.
+
+\end{document}

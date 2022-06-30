@@ -1,0 +1,159 @@
+\documentclass[11pt,a4paper,DIV9,german]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Anpassungen f"ur das jeweilige "Ubungsblatt
+\def\blnr{5}              % Blattnummer
+\def\sdate{29.3.2019,}    % Abgabedatum
+\def\exnr{1}              % Nummer der ersten Aufgabe des aktuellen Blattes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{babel,theorem}
+\usepackage{exscale}
+\usepackage{amsmath,amsfonts,amssymb,dsfont}
+\usepackage{a4wide}
+\usepackage{epic,eepic}
+\usepackage{graphicx} % einbinden von Grafiken mit \includegraphics
+\usepackage{url}
+
+\pagestyle{empty}
+\parindent0em
+\parskip1ex
+\addtolength{\topmargin}{0cm}
+\addtolength{\oddsidemargin}{0cm}
+\addtolength{\textheight}{2cm}
+\addtolength{\textwidth}{0cm}
+
+% neuer Z"ahler f"ur die Aufgaben
+\newcounter{aufgnr}
+\setcounter{aufgnr}{\exnr}
+\addtocounter{aufgnr}{-1}
+
+% in enumerate-Umgebungen erst Kleinbuchstaben, dann kleine r"omische Zahlen
+\renewcommand{\labelenumi}{(\alph{enumi})\,}
+\renewcommand{\labelenumii}{(\roman{enumii})\,}
+
+% Stil f"ur Definitionen, S"atze usw.
+\theoremstyle{break}   % Titelzeile abgesetzt
+\newtheorem{Satz}{Satz}
+\newtheorem{Lem}{Lemma}
+\newtheorem{Def}{Definition}
+\theorembodyfont{\upshape}  % normaler Font f"ur Beispiel, Aufgabe
+\newtheorem{Bsp}{Beispiel}
+\newtheorem{aufg}[aufgnr]{Aufgabe}
+\newenvironment{Aufgabe}[1][z*+]%
+{\begin{aufg}}
+  {\end{aufg}\vspace{1.5ex}}
+\newtheorem{praktaufg}[aufgnr]{Aufgabe^*}
+\newenvironment{PraktAufgabe}[1][]%  der optionale Param. muss in [[ .. ]]
+{\begin{praktaufg}#1}
+  {\end{praktaufg}\vspace{1.5ex}}
+
+\newcommand{\zweifaelles}[3]{ \left\{ \begin{array}{ccc} #1 & \hspace{.8cm}  \mbox{ falls } #2 \, , &     \\[1ex]
+                               #3 & \mbox{ sonst } &     \end{array} \right.     }
+% Mathematische K"urzel
+\def\R{\mathbb{R}}
+\def\S{\mathbb{S}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\P{\mathbb{P}}
+\def\K{\mathbb{K}}
+\def\O{{\mathcal O} }
+\def\G{{\mathcal G} }
+\def\T{{\mathcal T} }
+\def\U{{\mathcal U} }
+
+\newcommand{\arrl}{\begin{array}{l}}
+\newcommand{\are}{\end{array}}
+\newcommand{\arrc}{\begin{array}{c}}
+\newcommand{\mza}{\begin{eqnarray}}
+\newcommand{\mze}{\end{eqnarray}}
+\newcommand{\dn}{\frac{\partial}{\partial n}}
+\newcommand{\dny}{\frac{\partial}{\partial n(y)}}
+\newcommand{\dd}[2]{\ensuremath{\frac{\partial^{#1}}{\partial #2}}}
+\newcommand{\ov}{\overline}
+\newcommand{\ma}{\mid\!}
+\newcommand{\me}{\!\mid}
+\newcommand{\impl}{\Rightarrow}
+\newcommand{\sca}[3]{\ensuremath{(#1,#2)_{#3}}}
+\newcommand{\nor}[2]{\ensuremath{\parallel\! #1 \!\parallel_{#2}}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\phin}{\varphi}
+\newcommand{\diver}{\mbox{div}}
+
+\def\eps{{\varepsilon}}
+\def\i{{\sl i\;}}
+\def\e{{\rm e}}
+\def\D{{\rm D\;}}
+\def\norm{|\!|\!|}
+
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\cond}{cond}
+\DeclareMathOperator{\round}{round}
+\DeclareMathOperator{\supp}{supp}
+
+\begin{document}
+
+\parbox{0ex}{ \scalebox{.27}{  \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }   }   \\
+
+\parbox{25ex}{
+  Prof.~Dr.~S.~Sauter\\
+  Institut f"ur Mathematik\\
+  Universit"at Z"urich
+  }
+%
+\rule[0cm]{0.cm}{.01cm}
+\hfill  \parbox{0.6\textwidth}{
+  {\sf\LARGE\bfseries Numerik I}
+  {\sf\Large\bfseries \;\;--\;\; Homework \blnr }\\[1.5ex]
+  Deadline: \sdate\ 13:00
+  }
+
+
+
+\vspace{10ex}
+
+
+% \scalebox{.27}{ \put(1250,0){ \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Aufgaben
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Restriction}
+The use of built-in functions for Fourier transform is not allowed.\\
+
+\textbf{Exercise 1} (6 P.) (Programming task)\\
+Write a function that implements the Fourier transform given by {Definition 5.2} in the lecture notes.  The function should take the real-valued vector \(\left(f_k\right)_{k=0}^{N-1}\) as the input argument and return as the output
+\begin{enumerate}
+  \item the Fourier coefficients \(\hat{f}_k\);
+  \item the coefficients \(\hat{A}_m\) and \(\hat{B}_m\) of the trigonometric polynomial \(T(t)\) for real-valued \(f_k\) (Equation 5.5 in the lecture notes);
+  \item a plot of the trigonometric polynomial \(T(t)\).
+\end{enumerate}
+
+
+\textbf{Exercise 2} (6 P.) (Programming task)\\
+On the course homepage there is a data file \textit{f.dat} which stores the evaluations of a continuous function \(f:[0,2x_0]\rightarrow\mathds{R}\)
+\begin{equation*}
+  f_k=f\left(\frac{2x_0k}{N}\right)\quad\mathrm{where}~k=0,1,\cdots,N-1
+\end{equation*}
+for \(N=2^{16}\).  The function has the property \(f(0)=f(2x_0), \; x_0 = 
+101.15520937701599\).
+
+For the refinement level \(l=2,4,6,8,10,12,14,16\),
+\begin{enumerate}
+  \item Use your program in Exercise 1 to calculate the trigonometric polynomial \(T(t)\) by using the following data sets respectively as the input argument
+  \begin{equation*}
+    f\left(\frac{2x_0k}{2^l}\right)\quad\mathrm{where}~k=0,1,\cdots,2^l-1;
+  \end{equation*}
+  and show the trigonometric polynomials in the plot.
+ 
+  \item Calculate the approximation error for each data set
+  \begin{equation*}
+    \max_{0\leq k \leq N-1}\left|T_l\left(\frac{2x_0k}{N}\right)-f_k\right|
+  \end{equation*}
+  and record them in a table.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,189 @@
+\documentclass[11pt,a4paper,DIV9,german]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Anpassungen f"ur das jeweilige "Ubungsblatt
+\def\blnr{1}              % Blattnummer
+\def\sdate{01.03.2019,}     % Abgabedatum
+\def\exnr{1}              % Nummer der ersten Aufgabe des aktuellen Blattes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{babel,theorem}
+\usepackage{exscale}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{a4wide}
+\usepackage{epic,eepic}
+\usepackage{graphicx} % einbinden von Grafiken mit \includegraphics
+\usepackage{url}
+
+\pagestyle{empty}
+\parindent0em
+\parskip1ex
+\addtolength{\topmargin}{0cm}
+\addtolength{\oddsidemargin}{0cm}
+\addtolength{\textheight}{2cm}
+\addtolength{\textwidth}{0cm}
+
+% neuer Z"ahler f"ur die Aufgaben
+\newcounter{aufgnr}
+\setcounter{aufgnr}{\exnr}
+\addtocounter{aufgnr}{-1}
+
+% in enumerate-Umgebungen erst Kleinbuchstaben, dann kleine r"omische Zahlen
+\renewcommand{\labelenumi}{(\alph{enumi})\,}
+\renewcommand{\labelenumii}{(\roman{enumii})\,}
+
+% Stil f"ur Definitionen, S"atze usw.
+\theoremstyle{break}   % Titelzeile abgesetzt
+\newtheorem{Satz}{Satz}
+\newtheorem{Lem}{Lemma}
+\newtheorem{Def}{Definition}
+\theorembodyfont{\upshape}  % normaler Font f"ur Beispiel, Aufgabe
+\newtheorem{Bsp}{Beispiel}
+\newtheorem{aufg}[aufgnr]{Aufgabe}
+\newenvironment{Aufgabe}[1][z*+]%
+{\begin{aufg}}
+  {\end{aufg}\vspace{1.5ex}}
+\newtheorem{praktaufg}[aufgnr]{Aufgabe^*}
+\newenvironment{PraktAufgabe}[1][]%  der optionale Param. muss in [[ .. ]]
+{\begin{praktaufg}#1}
+  {\end{praktaufg}\vspace{1.5ex}}
+
+\newcommand{\zweifaelles}[3]{ \left\{ \begin{array}{ccc} #1 & \hspace{.8cm}  \mbox{ falls } #2 \, , &     \\[1ex] 
+                               #3 & \mbox{ sonst } &     \end{array} \right.     }
+% Mathematische K"urzel
+\def\R{\mathbb{R}}
+\def\S{\mathbb{S}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\P{\mathbb{P}}
+\def\K{\mathbb{K}}
+\def\O{{\mathcal O} }
+\def\G{{\mathcal G} }
+\def\T{{\mathcal T} }
+\def\U{{\mathcal U} }
+
+\newcommand{\arrl}{\begin{array}{l}}
+\newcommand{\are}{\end{array}}
+\newcommand{\arrc}{\begin{array}{c}}
+\newcommand{\mza}{\begin{eqnarray}}
+\newcommand{\mze}{\end{eqnarray}}
+\newcommand{\dn}{\frac{\partial}{\partial n}}
+\newcommand{\dny}{\frac{\partial}{\partial n(y)}}
+\newcommand{\dd}[2]{\ensuremath{\frac{\partial^{#1}}{\partial #2}}} 
+\newcommand{\ov}{\overline}
+\newcommand{\ma}{\mid\!}
+\newcommand{\me}{\!\mid}
+\newcommand{\impl}{\Rightarrow}
+\newcommand{\sca}[3]{\ensuremath{(#1,#2)_{#3}}}
+\newcommand{\nor}[2]{\ensuremath{\parallel\! #1 \!\parallel_{#2}}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\phin}{\varphi}
+\newcommand{\diver}{\mbox{div}}
+
+\def\eps{{\varepsilon}}
+\def\i{{\sl i\;}}
+\def\e{{\rm e}}
+\def\D{{\rm D\;}}
+\def\norm{|\!|\!|}
+
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\cond}{cond}
+\DeclareMathOperator{\round}{round}
+\DeclareMathOperator{\supp}{supp}
+
+\begin{document}
+
+\parbox{0ex}{ \scalebox{.27}{  \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }   }   \\
+
+\parbox{25ex}{
+  Prof.~Dr.~S.~Sauter\\
+  Institut f"ur Mathematik\\
+  Universit"at Z"urich
+  }
+%
+\rule[0cm]{0.cm}{.01cm}                  
+\hfill  \parbox{0.6\textwidth}{
+  {\sf\LARGE\bfseries Numerik I}
+  {\sf\Large\bfseries \;\;--\;\; Homework \blnr }\\[1.5ex]
+  Deadline: \sdate\ 13:00
+  }
+
+
+
+\vspace{10ex}
+
+
+% \scalebox{.27}{ \put(1250,0){ \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Aufgaben 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \vspace{-1cm}
+\textbf{Exercise 1} (4 P.)\\
+%
+Define 
+\begin{equation*} y:=333.75b^6+a^2(11a^2b^2-b^6-121b^4-2)+5.5b^8+\frac{a}{2b}.\end{equation*}
+
+\begin {itemize}
+\item [(a)] Compute $y$ for $a=\sqrt{4950000001}$ and $b=30000$ using two different tools (e.g. Matlab, Maple/Mathematica). What do you observe? Why?
+\item [(b)] The parameters $a=10^6$, $b=10^6+10^{-2}$ are rounded to $a^*$, $b^*$ according to
+\begin{align*}
+a^*&=a(1+\epsilon_1)\\
+b^*&=b(1+\epsilon_2), 
+\end{align*}
+where $|\epsilon_1|,\, |\epsilon_2| \ll 1$. Use error analysis of first order\footnote{ignoring quadratic terms of \(\epsilon\)} to find $\epsilon_1,\, \epsilon_2$ s.t. $z=a^2-b^2$ and $z^*= a^{*2}-b^{*2}$ satisfy
+\begin{equation*}
+z^*\doteq z(1+\epsilon_*), 
+\quad  |\epsilon_*|\leq 10^{-7}. 
+\end{equation*}
+
+\item [(c)] Let 
+\begin{equation}\label{1}
+y=\cos(x+\delta)-\cos(x),
+\end{equation}
+ with $\delta>0$ small. Find an equivalent expression of \eqref{1} that avoids round-off errors.
+\end{itemize}
+ 
+
+\textbf{Exercise 2} (5 P.)\\
+ We consider the integrals defined by
+\begin{equation} I_n = \int_0^1 x^ne^{x} \mathrm{d}x,
+\label{intN}
+\end{equation}
+for  \(n = 0,1,2,3,..\).
+
+
+\begin{itemize}
+\item[(a)] Prove that \begin{equation}\vert I_n\vert\le \dfrac{e}{n+1}.\label{ineq}\end{equation}
+\item[(b)] Prove, by using an integration by parts, the recurrence relation
+\begin{equation}\begin{array}{c}
+I_{k} = e - kI_{k-1}, \quad k \ge 1.
+\end{array}\label{Irek}\end{equation}
+Compute (with Matlab) $I_{100}$ using formula \eqref{Irek} starting with $I_{0}=e-1.$
+Compare your result to the ``exact'' value \(I_{100} = 0.026652359191789498\) and comment.
+
+\item[(c)] Let us introduce $\nu > n, \; \nu \in \mathbb{N}$. Using the reversed (backward) recurrence
+\begin{equation}\begin{array}{c}
+I_{k} = (e - I_{k+1})/(k+1), \quad k =  \nu - 1, \nu - 2,.., n.
+\end{array}\label{IrekRev}\end{equation}
+compute (with Matlab) an approximation  $I^*_{100}$ of $I_{100}$ starting with $I^*_{\nu}=0, \text{for } \nu =200.$ Compare the results of (b) and (c).
+
+To explain the differences, derive the relation
+\begin{equation}
+\delta_n = \left| \dfrac{I_{n} - I_{n}^*}{I_n}\right| \le \left(\prod_{l = n +1}^{\nu} \left|\dfrac{I_{l}}{e - I_{l}}\right|\right) \left|\dfrac{I_{\nu} - I_{\nu}^*}{I_{\nu}} \right|
+\end{equation}
+
+and show , using \eqref{ineq}, that  
+\begin{equation}
+\left(\prod_{l = n+1}^{\nu} \left|\dfrac{I_{l}}{e - I_{l}}\right|\right) \le \left( \dfrac{1}{n}\right)^{\nu - n -1}
+\label{relNu}\end{equation}
+\item[(d)]  How to choose $\nu$ to satisfy $\vert \delta_{100} \vert\le \epsilon$, for given $\epsilon > 0$?
+
+\end{itemize}
+
+
+\end{document}

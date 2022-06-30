@@ -1,0 +1,171 @@
+\documentclass[11pt,a4paper,english,hyperref]{article}
+
+\newcommand\blattNummer{8}
+\newcommand\abgabeDatum{8.3.2019}
+\newcommand\ersteAufgabeNummer{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{babel}
+\usepackage{exscale}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[thref, amsmath, amsthm, thmmarks]{ntheorem}
+\usepackage{a4wide}
+\usepackage{epic,eepic}
+\usepackage{graphicx} % einbinden von Grafiken mit \includegraphics
+\usepackage{url}
+\usepackage{mathtools}
+\usepackage{etoolbox}
+\usepackage[colorlinks]{hyperref}
+\usepackage{enumitem}
+\usepackage[capitalize]{cleveref}
+
+\pagestyle{empty}
+\parindent0em
+\parskip1ex
+\addtolength{\topmargin}{0cm}
+\addtolength{\oddsidemargin}{0cm}
+\addtolength{\textheight}{2cm}
+\addtolength{\textwidth}{0cm}
+
+% neuer Zähler für die Aufgaben
+\newcounter{aufgabeNummer}
+\setcounter{aufgabeNummer}{\ersteAufgabeNummer}
+\addtocounter{aufgabeNummer}{-1}
+
+% in enumerate-Umgebungen erst Kleinbuchstaben, dann kleine römische Zahlen
+\renewcommand{\labelenumi}{(\alph{enumi})\,}
+\renewcommand{\labelenumii}{(\roman{enumii})\,}
+\crefname{enumerate}{}{}
+
+% Stil für Definitionen, Sätze usw.
+\theoremstyle{break}   % Titelzeile abgesetzt
+\newtheorem{Satz}{Proposition}
+\newtheorem{Lemma}{Lemma}
+\newtheorem{Definition}{Definition}
+\theorembodyfont{\upshape}  % normaler Font f"ur Beispiel, Aufgabe
+\newtheorem{Beisiep}{Example}
+\newtheorem{Aufgabe}[aufgabeNummer]{Exercise}
+
+% Mathematische Kürzel
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\N{\mathbb{N}}
+\newcommand\Z{\mathbb{Z}}
+\renewcommand\P{\mathbb{P}}
+\newcommand\T{{\mathcal T} }
+
+\newcommand\eps{{\varepsilon}}                                  % machine precision?
+\newcommand\im{{\sl i\;}}                                        % imaginary unit?
+\newcommand\e{{\rm e}}                                          % Euler number
+\newcommand\D{{\rm D\;}}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\dotProductD{\langle}{\rangle}           % Delimiters for dot product
+
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\cond}{cond}
+\DeclareMathOperator{\round}{round}
+\DeclareMathOperator{\supp}{supp}
+
+
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearpairofpagestyles
+\ohead{Name: ................................................}
+
+
+\begin{document}
+\parbox{0ex}{ \scalebox{.27}{  \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2-eps-converted-to.pdf} }   }   \\
+\parbox{25ex}{
+  Prof.~Dr.~S.~Sauter\\
+  Institut für Mathematik\\
+  Universität Zürich
+}
+% 
+\rule[0cm]{0.cm}{.01cm}                  
+\hfill  \parbox{0.6\textwidth}{
+  {\sf\LARGE\bfseries Numerik I}
+  {\sf\Large\bfseries \;\;--\;\; Midterm}\\[1.5ex]
+}
+\vspace{5ex}
+
+
+% \scalebox{.27}{ \put(1250,0){ \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+% Aufgaben 
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+Exercises marked with $^*$ give extra points.
+
+\begin{Aufgabe}[Computational task]
+Let $a$ be a real positive parameter and $f_a:\left[ -1, 1 \right] \to \R$ the given function $f_a(x):= \arctan (a\sin(x)).$ For $n\in \N$ let $p_{a,n}\in \P_n$ be the interpolation polynomial with the following properties
+$$
+p_{a,n}(x_i)=f_a(x_i)\qquad \text{for nodes }x_i=-1+\frac{2i}{n}\qquad 0\leq i \leq n.
+$$
+You find the function computing the divided differences and the corresponding interpolation polynomial in your folder (\textbf{Newton\_Interpol.m} or \textbf{Newton\_Interpol.py})
+\begin{enumerate}
+\item (3 points) Plot the functions $f_a$ and $p_{a,n}$ for the parameter $a=1$ and polynomial degrees $n=4,6,8,10,12$. Store the figure for \(n=8\) as \textbf{fig1a.eps}). Compute the error
+$$
+E_{a,n}:=\max_{-500\leq j \leq 500} \left| (f_a-p_{a,n})\left(\frac{j}{500}\right) \right|
+$$
+with respect to \(n\) into a table. Is the decay of the error exponential or polynomial with respect to $n$?
+\item (1 point) Estimate, through computer experiments, the approximated value of $a_{max}$, such that $\forall a\leq a_{max}$ the interpolation polynomial $p_{a,n}$ is converging on $\left[ -1,1 \right]$. 
+\item(2 points) Fix $a=a_{max}/2$ and find an upper bound for the error  with respect to $n$, estimating $\beta$ and $C$ in the following inequality:
+$$
+E_{a,n}\leq C e^{-\beta n}=:B(C,\beta,n).
+$$
+Save a figure with the error and the bound $B(C,\beta,\cdot)$, with respect to $n$, as \textbf{fig1c.eps}.
+\end{enumerate}
+\end{Aufgabe}
+\newpage
+\begin{Aufgabe}[Computational task]
+Let $$
+A_n=(a_{ij})_{i,j=1}^n,\qquad a_{ij}:=\begin{cases} 2 & \text{if }i=j,\\ -1 &\text{if }|i-j|=1, \\ 0 & \text{else}
+\end{cases} \qquad \text{ and }b=(b_i)_{i=1}^n, \qquad b_{i}:=\begin{cases} 1 & \text{if }i \text{ even},\\ 0 & \text{if }i\text{ odd.}
+\end{cases}
+$$
+\begin{enumerate}
+\item (2 points) Test the running time for the given QR decomposition (\textbf{solveLinSysQR.m} or \textbf{solveLinSysQR.py}) to solve the system \(A_n x = b\) for different values of \(n\) (take \(n \geq 300\)) and verify the asymptotic behaviour of the computational cost with respect to the dimension \(n\) of the system.
+\item[(b$^*$)] (6 points) Fix \(n=100\). We consider a perturbed vector on the right hand side
+\begin{align*}
+b^{\delta}=(b_i)_{i=1}^n, \qquad b_{i}:=\begin{cases} 1 & \text{if }i \text{ even},\\ \delta & \text{if }i\text{ odd}
+\end{cases}
+\end{align*}
+for \(0<\delta< 0.1\). Compute the error \(\|x-x^{\delta}\|\) for different values of \(\delta\), where \(x\) is the solution of \(A_n x= b\), and \(x^{\delta}\) is the solution of \(A_n x^{\delta} = b^{\delta}\). Plot the error with respect to \(\delta\). What can you say about the asymptotic behaviour of the error for \(\delta \rightarrow 0\)? Repeat your experiment with the matrix
+$$
+\tilde{A}_n=(a_{ij})_{i,j=1}^n,\qquad a_{ij}:=\begin{cases} 4 & \text{if }i=j\\ -1 &\text{if }|i-j|=1 \\ 0 & \text{else}
+\end{cases}\
+$$
+and the same right hand side \(b\) and \(b^{\delta}\). Compare the error \(\|x-x^{\delta}\|\)  and \(\|\tilde{x}-\tilde{x}^{\delta}\|\) in a table. How do you explain the difference of the magnitudes?
+\end{enumerate}
+\end{Aufgabe}
+\newpage 
+\begin{Aufgabe}[Mixed task]
+Let $I:=[0,1]$. We want to approximate the integral of a given function $f:I\to \mathbb{R}$ 
+$$\mathcal{I}(f):=\int_0 ^ 1 \omega(x) f(x)dx
+$$
+using a quadrature of the form
+$$\mathcal{I}(f)\approx Q(f)=\alpha f\left(x_0\right)
+$$
+\begin{enumerate}
+\item (2 points) Assume that we know the values \(\int_0^1 \omega(x)dx\) and \(\int_0^1 x \omega(x)dx\). Find a formula for \(x_0\) and \(\alpha\) such that the quadrature has maximal degree of exactness. Compute \(x_0\) and \(\alpha\) explicitly for the choice \(\omega(x) = 1+x\).
+\end{enumerate}
+\noindent From now on, we consider \(\omega(x) = 1\).
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item (2 points) Write a program that computes the composite quadrature \(Q^n(f)\) (based on \(Q(f)\)) on \(n\) equidistant subintervals. 
+%INPUT=\{$n$ the number of subintervals, the anonymous function (MATLAB) or the lambda function (Pyhton)\footnote{ex. MATLAB: \texttt{f=@(x) x.\^{}2 }\\ ex. Python : \texttt{f=lambda x: x**2} } $f : I\to \mathbb{R}$  \}; OUTPUT=\{$Q_M^n(f)$\}.
+\item (2 points) Run the program for function $f(x):=\dfrac{1}{1 + x^2}$. The exact value of \(\mathcal{I}\) is given by $\mathcal{I}(f)=\pi/4$. Compute error $e^n(f):=|Q^n(f)-\mathcal{I}(f)|$ for different values of $n$. What can you say about the convergence of the error with respect to $h$, where $h$ is the length of each subinterval?
+\item (2 points) (Theoretical task) Prove that for $f\in \mathcal{C}^\infty (I)$ $$e^n(f)\leq Ch^2.$$ %
+\item (2 points) Use the quadrature for the function $f(x):=x^{2/3}$. Compute analytically the exact value of $I(f)$. Estimate numerically the exponent $r$ in the following inequality 
+$$e^n(f) \leq Ch^r.$$
+Explain why $r<2$.
+\end{enumerate}
+\end{Aufgabe}
+
+
+\end{document}

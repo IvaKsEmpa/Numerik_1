@@ -1,0 +1,164 @@
+\documentclass[11pt,a4paper,DIV9,german]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Anpassungen f"ur das jeweilige "Ubungsblatt
+\def\blnr{4}              % Blattnummer
+\def\sdate{22.3.2019,}     % Abgabedatum
+\def\exnr{1}              % Nummer der ersten Aufgabe des aktuellen Blattes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{babel,theorem}
+\usepackage{exscale}
+\usepackage{amsmath,amsfonts,amssymb,dsfont}
+\usepackage{a4wide}
+\usepackage{epic,eepic}
+\usepackage{graphicx} % einbinden von Grafiken mit \includegraphics
+\usepackage{url}
+
+\pagestyle{empty}
+\parindent0em
+\parskip1ex
+\addtolength{\topmargin}{0cm}
+\addtolength{\oddsidemargin}{0cm}
+\addtolength{\textheight}{2cm}
+\addtolength{\textwidth}{0cm}
+
+% neuer Z"ahler f"ur die Aufgaben
+\newcounter{aufgnr}
+\setcounter{aufgnr}{\exnr}
+\addtocounter{aufgnr}{-1}
+
+% in enumerate-Umgebungen erst Kleinbuchstaben, dann kleine r"omische Zahlen
+\renewcommand{\labelenumi}{(\alph{enumi})\,}
+\renewcommand{\labelenumii}{(\roman{enumii})\,}
+
+% Stil f"ur Definitionen, S"atze usw.
+\theoremstyle{break}   % Titelzeile abgesetzt
+\newtheorem{Satz}{Satz}
+\newtheorem{Lem}{Lemma}
+\newtheorem{Def}{Definition}
+\theorembodyfont{\upshape}  % normaler Font f"ur Beispiel, Aufgabe
+\newtheorem{Bsp}{Beispiel}
+\newtheorem{aufg}[aufgnr]{Aufgabe}
+\newenvironment{Aufgabe}[1][z*+]%
+{\begin{aufg}}
+  {\end{aufg}\vspace{1.5ex}}
+\newtheorem{praktaufg}[aufgnr]{Aufgabe^*}
+\newenvironment{PraktAufgabe}[1][]%  der optionale Param. muss in [[ .. ]]
+{\begin{praktaufg}#1}
+  {\end{praktaufg}\vspace{1.5ex}}
+
+\newcommand{\zweifaelles}[3]{ \left\{ \begin{array}{ccc} #1 & \hspace{.8cm}  \mbox{ falls } #2 \, , &     \\[1ex]
+                               #3 & \mbox{ sonst } &     \end{array} \right.     }
+% Mathematische K"urzel
+\def\R{\mathbb{R}}
+\def\S{\mathbb{S}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\P{\mathbb{P}}
+\def\K{\mathbb{K}}
+\def\O{{\mathcal O} }
+\def\G{{\mathcal G} }
+\def\T{{\mathcal T} }
+\def\U{{\mathcal U} }
+
+\newcommand{\arrl}{\begin{array}{l}}
+\newcommand{\are}{\end{array}}
+\newcommand{\arrc}{\begin{array}{c}}
+\newcommand{\mza}{\begin{eqnarray}}
+\newcommand{\mze}{\end{eqnarray}}
+\newcommand{\dn}{\frac{\partial}{\partial n}}
+\newcommand{\dny}{\frac{\partial}{\partial n(y)}}
+\newcommand{\dd}[2]{\ensuremath{\frac{\partial^{#1}}{\partial #2}}}
+\newcommand{\ov}{\overline}
+\newcommand{\ma}{\mid\!}
+\newcommand{\me}{\!\mid}
+\newcommand{\impl}{\Rightarrow}
+\newcommand{\sca}[3]{\ensuremath{(#1,#2)_{#3}}}
+\newcommand{\nor}[2]{\ensuremath{\parallel\! #1 \!\parallel_{#2}}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\phin}{\varphi}
+\newcommand{\diver}{\mbox{div}}
+
+\def\eps{{\varepsilon}}
+\def\i{{\sl i\;}}
+\def\e{{\rm e}}
+\def\D{{\rm D\;}}
+\def\norm{|\!|\!|}
+
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\cond}{cond}
+\DeclareMathOperator{\round}{round}
+\DeclareMathOperator{\supp}{supp}
+
+\begin{document}
+
+\parbox{0ex}{ \scalebox{.27}{  \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }   }   \\
+
+\parbox{25ex}{
+  Prof.~Dr.~S.~Sauter\\
+  Institut f"ur Mathematik\\
+  Universit"at Z"urich
+  }
+%
+\rule[0cm]{0.cm}{.01cm}
+\hfill  \parbox{0.6\textwidth}{
+  {\sf\LARGE\bfseries Numerik I}
+  {\sf\Large\bfseries \;\;--\;\; Homework \blnr }\\[1.5ex]
+  Deadline: \sdate\ 13:00
+  }
+
+
+
+\vspace{10ex}
+
+
+% \scalebox{.27}{ \put(1250,0){ \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Aufgaben
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Exercise 1} (8 P.) (Theoretical task)\\
+Given a matrix \(\mathbf{A}_{\varepsilon}=\begin{bmatrix}\varepsilon&1\\1&1\end{bmatrix}\) for \(0\leq\varepsilon\leq \frac{1}{2}\).
+\begin{enumerate}
+  \item Compute the QR-decomposition \(\mathbf{A}_{\varepsilon}=\mathbf{Q}_{\varepsilon}\mathbf{R}_{\varepsilon}\) where \(\mathbf{Q}_{\varepsilon}\mathbf{Q}_{\varepsilon}^T=\mathbf{I}\) and \(\mathbf{R}_{\varepsilon}=\begin{bmatrix}r_{11}&r_{12}\\0&r_{22}\end{bmatrix}\).
+  \item Compute the LU-decomposition \(\mathbf{A}_{\varepsilon}=\mathbf{L}_{\varepsilon}\mathbf{U}_{\varepsilon}\) where \(\mathbf{L}_{\varepsilon}=\begin{bmatrix}1&0\\l_{21}&1\end{bmatrix}\) and \(\mathbf{U}_{\varepsilon}=\begin{bmatrix}u_{11}&u_{12}\\0&u_{22}\end{bmatrix}\).
+  \item The condition number of an \(n\times n\) matrix \(\mathbf{M}\) is defined as \(\kappa_*(\mathbf{M}):=\|\mathbf{M}\|_*\|\mathbf{M}^{-1}\|_*\) where \(\displaystyle \|\mathbf{M}\|_*:=\max_{1\leq{i,j}\leq n} |m_{ij}|\).  For a linear system \(\mathbf{M}\mathbf{u}=\mathbf{r}\), it indicates the influence of the  perturbation  in \(\tilde{\mathbf{r}}\approx \mathbf{r}\) on the perturbed solution of the system \(\mathbf{M}\tilde{\mathbf{u}}=\tilde{\mathbf{r}}\).
+  \begin{enumerate}
+    \item Calculate the condition numbers of \(\mathbf{A}_{\varepsilon}\), \(\mathbf{L}_{\varepsilon}\) and \(\mathbf{U}_{\varepsilon}\).  Investigate how the condition numbers change as \(\varepsilon\) approaches \(0\).
+    \item Determine the condition numbers of \(\mathbf{Q}_\varepsilon\) and \(\mathbf{R}_\varepsilon\) for \(\varepsilon\rightarrow 0\).  (The norm is continuous, and therefore the norm and the limit are exchangeable.)
+    \item Comment on your results in (i) and (ii).
+  \end{enumerate}
+\end{enumerate}
+
+\vspace{0.6cm}
+
+\textbf{Exercise 2} (6 P.) (Programming task)\\
+Note: Do not use implemented Matlab functions to solve the exercises. 
+
+a) Implement the QR-decomposition to solve a system of linear equations.  Write a function that takes the matrix \(\mathbf{A}\in\mathds{C}^{n\times n}\) as input  and returns the vectors \(\mathbf{u}, \; \beta\) as defined in \((3.5)\) of the lecture notes.
+
+
+b) Write a program for solving $\mathbf{Ax}=\mathbf{b}$ with input $\mathbf{A}$ and the right-hand side vector \(\mathbf{b}\in\mathds{C}^{n\times 1}\) using your program from a) to get $\mathbf{u}$ and $\beta$. Use the algorithm in proof of Satz $3.6$ to efficiently solve the system. Adapt the algorithm on page $30$ to solve a system with upper-triangular matrix.  Use the following \(\mathbf{A}\) and \(\mathbf{b}\) to test your program: 
+\begin{alignat*}{1}
+  \mathbf{A}=&(a_{ij})_{i,j=1}^{100}\in\mathds{R}^{100\times 100}\quad\mathrm{where}~
+  a_{ij}:=
+  \begin{cases}
+    100          ~&\mathrm{if}~i=j,\\
+    e^{-\frac{|i-j|}{100}}~&\mathrm{if}~i\neq j.
+  \end{cases}\\
+  \mathbf{b}=&[1,0,1,0,\cdots,1,0]^T\in\mathds{R}^{100\times 1}.
+\end{alignat*}
+
+Check the result by calculating the residual \(\|\mathbf{r}\|_{\infty}=\|\mathbf{Ax}-\mathbf{b}\|_{\infty}\) where \(\displaystyle \|\mathbf{r}\|_{\infty}=\max_{1\leq i \leq n}|r_i|\).
+
+\textbf{Exercise 3} (4 P.)(Theoretical task)\\
+a) Prove \textbf{Lemma 3.5} of the lecture notes for the case $a_{11} = 0$.
+
+b) Assume $dim(ker(\mathbf{A}))=m> 0.$ What is the consequence on the matrix $\mathbf{R}$ in (3.2) of the lecture notes?
+
+\end{document}

@@ -1,0 +1,160 @@
+\documentclass[11pt,a4paper,DIV9,german]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Anpassungen f"ur das jeweilige "Ubungsblatt
+\def\blnr{3}              % Blattnummer
+\def\sdate{15.3.2019,}     % Abgabedatum
+\def\exnr{1}              % Nummer der ersten Aufgabe des aktuellen Blattes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{babel,theorem}
+\usepackage{exscale}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{a4wide}
+\usepackage{epic,eepic}
+\usepackage{graphicx} % einbinden von Grafiken mit \includegraphics
+\usepackage{url}
+
+\pagestyle{empty}
+\parindent0em
+\parskip1ex
+\addtolength{\topmargin}{0cm}
+\addtolength{\oddsidemargin}{0cm}
+\addtolength{\textheight}{2cm}
+\addtolength{\textwidth}{0cm}
+
+% neuer Z"ahler f"ur die Aufgaben
+\newcounter{aufgnr}
+\setcounter{aufgnr}{\exnr}
+\addtocounter{aufgnr}{-1}
+
+% in enumerate-Umgebungen erst Kleinbuchstaben, dann kleine r"omische Zahlen
+\renewcommand{\labelenumi}{(\alph{enumi})\,}
+\renewcommand{\labelenumii}{(\roman{enumii})\,}
+
+% Stil f"ur Definitionen, S"atze usw.
+\theoremstyle{break}   % Titelzeile abgesetzt
+\newtheorem{Satz}{Satz}
+\newtheorem{Lem}{Lemma}
+\newtheorem{Def}{Definition}
+\theorembodyfont{\upshape}  % normaler Font f"ur Beispiel, Aufgabe
+\newtheorem{Bsp}{Beispiel}
+\newtheorem{aufg}[aufgnr]{Aufgabe}
+\newenvironment{Aufgabe}[1][z*+]%
+{\begin{aufg}}
+  {\end{aufg}\vspace{1.5ex}}
+\newtheorem{praktaufg}[aufgnr]{Aufgabe^*}
+\newenvironment{PraktAufgabe}[1][]%  der optionale Param. muss in [[ .. ]]
+{\begin{praktaufg}#1}
+  {\end{praktaufg}\vspace{1.5ex}}
+
+\newcommand{\zweifaelles}[3]{ \left\{ \begin{array}{ccc} #1 & \hspace{.8cm}  \mbox{ falls } #2 \, , &     \\[1ex] 
+                               #3 & \mbox{ sonst } &     \end{array} \right.     }
+% Mathematische K"urzel
+\def\R{\mathbb{R}}
+\def\S{\mathbb{S}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\P{\mathbb{P}}
+\def\K{\mathbb{K}}
+\def\O{{\mathcal O} }
+\def\G{{\mathcal G} }
+\def\T{{\mathcal T} }
+\def\U{{\mathcal U} }
+
+\newcommand{\arrl}{\begin{array}{l}}
+\newcommand{\are}{\end{array}}
+\newcommand{\arrc}{\begin{array}{c}}
+\newcommand{\mza}{\begin{eqnarray}}
+\newcommand{\mze}{\end{eqnarray}}
+\newcommand{\dn}{\frac{\partial}{\partial n}}
+\newcommand{\dny}{\frac{\partial}{\partial n(y)}}
+\newcommand{\dd}[2]{\ensuremath{\frac{\partial^{#1}}{\partial #2}}} 
+\newcommand{\ov}{\overline}
+\newcommand{\ma}{\mid\!}
+\newcommand{\me}{\!\mid}
+\newcommand{\impl}{\Rightarrow}
+\newcommand{\sca}[3]{\ensuremath{(#1,#2)_{#3}}}
+\newcommand{\nor}[2]{\ensuremath{\parallel\! #1 \!\parallel_{#2}}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\phin}{\varphi}
+\newcommand{\diver}{\mbox{div}}
+
+\def\eps{{\varepsilon}}
+\def\i{{\sl i\;}}
+\def\e{{\rm e}}
+\def\D{{\rm D\;}}
+\def\norm{|\!|\!|}
+
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\cond}{cond}
+\DeclareMathOperator{\round}{round}
+\DeclareMathOperator{\supp}{supp}
+
+\begin{document}
+
+\parbox{0ex}{ \scalebox{.27}{  \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }   }   \\
+
+\parbox{25ex}{
+  Prof.~Dr.~S.~Sauter\\
+  Institut f"ur Mathematik\\
+  Universit"at Z"urich
+  }
+%
+\rule[0cm]{0.cm}{.01cm}                  
+\hfill  \parbox{0.6\textwidth}{
+  {\sf\LARGE\bfseries Numerik I}
+  {\sf\Large\bfseries \;\;--\;\; Homework \blnr }\\[1.5ex]
+  Deadline: \sdate\ 13:00
+  }
+
+
+
+\vspace{10ex}
+
+
+% \scalebox{.27}{ \put(1250,0){ \includegraphics[width=.5\textwidth,angle=-90]{cm-logo2.eps} }  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Aufgaben 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Exercise 1} (4 P.) (Programming task)\\
+Implement the evaluation of the piecewise quadratic interpolation\footnote{Section 2.4 in manuscript $\mathcal{S}^{0,2}_{\mathcal{G}} := \lbrace u\in C^0(I) | \forall \tau \in \mathcal{G } : u|_\tau \in \mathbb{P}_2 \rbrace $} on $N$ subintervals of equal length at given points.  \\
+Input: interval \([a,b]\),  the evaluation points, \(N\), values of \(f\) at the \(2N+1\) nodes.\\
+Output: values of the interpolation polynomial at given evaluation points.
+
+\vspace{0.8cm}
+
+\textbf{Exercise 2} (4 P.) (Mixed task)
+\begin{itemize}
+\item[(a)] Let \(i = \sqrt{-1}\) and \( \mathcal{D}:= \{x + i y \vert -2 \le x \le 2, \; -3/8 \le y \le 3/8 \}\) with the boundary \(\partial \mathcal{D}\) of the length \(L\). Consider the function $$f:  \mathcal{D} \rightarrow \mathbb{C}, \; f(z) = \dfrac{1}{1+4z^2}$$ 
+Use you program of exercise 1 to find a piecewise quadratic interpolation \(p_N\) of \\\({f_R(x):= \dfrac{1}{1 + 4x^2},\; x\in [-1,1],\) with \(N\in \{1,2,3,4,5\}\) subintervals. Write the error
+\begin{equation}\label{error}
+E_{N}:=\max\limits_{0\leq j\leq 1000} \left| (f_R-p_{N})(\tilde{x}_j) \right|
+\end{equation}
+as a function of \(N\) into a table, where $\tilde{x}_j=-1+\frac{j}{500}$.  
+\item[(b)] Use the estimate (derived via complex analysis)
+$$\vert f^{(n)}(x)\vert \le \dfrac{n!}{2\pi}L\left(\dfrac{8}{3}\right)^{n+1} max_{z \in \partial \mathcal{D}}\vert f(z)\vert$$
+to get an explicit bound for the error $\|f-p_N\|_{\text{max}}$. Employ the error estimate to determine \(N_\varepsilon\) such that the error \(\|f-p_N_\varepsilon\|_{\text{max}}\) is less than $\varepsilon = 10^{-7}$.
+%\item[(c)] Add to the table of (a) the theoretical error bounds from (b) for \(N \in \{1,2,3,4,5,N_\varepsilon\}\). Compare the values.
+
+\textbf{Hint:} Show that \(f(x+iy)\overline{f(x+iy)}\) as a function of $x$ is maximal at $x = 0.$
+\end{itemize}
+
+\vspace{0.8cm}
+
+
+\textbf{Exercise 3} (4 P.) (Theoretical task)\\
+Let \(\Theta_n:=\{x_i\vert i =0,1,2, ..., n\}\) with \( -1 = x_0<x_1<\dotsc<x_n = 1\) be the set of nodes, \(\tau_i=(x_{i-1},x_i)\) and \[\mathcal{S}_{\Theta_n}^{-1,0}:= \{\varphi: [-1,1]\to\R|~ \varphi_{|\tau_i} = c_i,~ c_i \in\R,~\forall~ 1\leq i\leq n\}\] the space of piecewise constant functions. We want to approximate the linear function \({f:[-1,1] \to \R}\), \(f(x)=x\).
+\begin{itemize}
+\item[(a)] Choose a basis for \(\mathcal{S}_{\Theta_n}^{-1,0}\) and compute the matrix \[\textbf{M}:= \left(\int_{-1}^1b_i(x)b_j(x)\right)_{i,j=1}^n\] and the right hand side \(\textbf{r}:= \left(\int_{-1}^1b_i(x)f(x))\right)_{i=1}^n\). 
+\item[(b)] Find the solution of the system \(\textbf{M}\textbf{x}=\textbf{r}\) and let \(\varphi_\text{opt}:= \sum_{i=1}^n x_ib_i(x)\). 
+\end{itemize}
+
+
+
+\end{document}

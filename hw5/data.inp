@@ -1,0 +1,11 @@
+400			Nombre de mailles
+1.d0			Longueur du tube
+0.5d0			Position de la separation
+0.15d0			Temps final
+0.4d0		Pression gauche membrane
+0.4d0		Pression droite membrane
+1.0d0		Masse volumique gauche membrane
+1.0d0		Masse volumique droite membrane
+-2.0d0		Vitesse gauche membrane
+2.0d0		Vitesse droite membrane
+1.d-8			Critere de convergence
